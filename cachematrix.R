@@ -1,5 +1,11 @@
-## This function creates a special vector that caches the calculation of its inverse
-## It does this by creating the object as a list with `set` and `get` functions
+## The following two functions are used to compute and cache the inverse of a 
+## matrix.
+
+## makeCacheMatrix creates a list containing a function to
+## 1. set the value of the matrix
+## 2. get the value of the matrix
+## 3. set the value of inverse of the matrix
+## 4. get the value of inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL ## initially the value of inverse is NULL
@@ -24,9 +30,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function will calculate the inverse of the square matrix and caching
-## the result in the makeCacheMatrix object.
-## If the inverse has already been computed,the cached result will be returned
+## cacheSolve function returns the inverse of the matrix. It first checks if
+## the inverse has already been computed. If so, it returns the cached result  
+## and skips the computation. If not, it computes the inverse and sets the 
+## value of inverse via setInverse function.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
